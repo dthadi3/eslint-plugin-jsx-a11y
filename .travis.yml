@@ -1,3 +1,6 @@
+arch:
+  - amd64
+  - ppc64le
 language: node_js
 node_js:
   - "14"
@@ -32,6 +35,18 @@ env:
     - ESLINT=5
     - ESLINT=4
     - ESLINT=3
+#Added power jobs
+    - arch: ppc64le
+      env: ESLINT=7
+    - arch: ppc64le
+      env: ESLINT=6
+    - arch: ppc64le
+      env: ESLINT=5
+    - arch: ppc64le
+      env: ESLINT=4
+    - arch: ppc64le
+      env: ESLINT=3
+
 matrix:
   fast_finish: true
   include:
@@ -39,6 +54,13 @@ matrix:
       env: FLOW=true TEST=false
     - node_js: "node"
       env: LINT=true TEST=false
+#powerjobs
+    - node_js: "node"    
+      env: FLOW=true TEST=false
+      arch: ppc64le
+    - node_js: "node"
+      env: LINT=true TEST=false
+      arch: ppc64le
   exclude:
     - node_js: "4"
       env: ESLINT=5
@@ -52,8 +74,35 @@ matrix:
       env: ESLINT=7
     - node_js: "8"
       env: ESLINT=7
+#powerjobs
+    - node_js: "4"
+      env: ESLINT=5
+      arch: ppc64le
+    - node_js: "4"
+      env: ESLINT=6
+      arch: ppc64le
+    - node_js: "4"
+      env: ESLINT=7
+      arch: ppc64le
+    - node_js: "6"
+      env: ESLINT=6
+      arch: ppc64le
+    - node_js: "6"
+      env: ESLINT=7
+      arch: ppc64le
+    - node_js: "8"
+      env: ESLINT=7
+      arch: ppc64le
+
   allow_failures:
     - node_js: "4"
       env: ESLINT=4
     - node_js: "4"
       env: ESLINT=3
+#powerjobs
+    - node_js: "4"
+      env: ESLINT=4
+      arch: ppc64le
+    - node_js: "4"
+      env: ESLINT=3
+      arch: ppc64le
