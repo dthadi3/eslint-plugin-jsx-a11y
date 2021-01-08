@@ -35,17 +35,6 @@ env:
     - ESLINT=5
     - ESLINT=4
     - ESLINT=3
-#Added power jobs
-    - arch: ppc64le
-      env: ESLINT=7
-    - arch: ppc64le
-      env: ESLINT=6
-    - arch: ppc64le
-      env: ESLINT=5
-    - arch: ppc64le
-      env: ESLINT=4
-    - arch: ppc64le
-      env: ESLINT=3
 
 matrix:
   fast_finish: true
